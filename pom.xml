@@ -52,6 +52,16 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+			<!-- <plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<skipMain>true</skipMain>
+					<skip>true</skip>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin> -->
 			<plugin>
 				<groupId>org.jacoco</groupId>
 				<artifactId>jacoco-maven-plugin</artifactId>
@@ -77,11 +87,13 @@
 							<goal>report</goal>
 						</goals>
 						<configuration>
+							<!-- Sets the path to the file which contains the execution data. -->
+
 							<dataFile>target/jacoco.exec</dataFile>
+							<!-- Sets the output directory for the code coverage report. -->
 							<outputDirectory>target/jacoco-ut</outputDirectory>
 						</configuration>
 					</execution>
-
 				</executions>
 				<configuration>
 					<systemPropertyVariables>
@@ -90,6 +102,7 @@
 				</configuration>
 			</plugin>
 		</plugins>
+		<finalName>docker-app-port</finalName>
 	</build>
 
 </project>
