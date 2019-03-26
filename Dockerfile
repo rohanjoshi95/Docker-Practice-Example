@@ -1,4 +1,6 @@
 FROM openjdk:8
-ADD target/docker-app-port.jar practice.jar
+VOLUME /tmp
+ADD build/libs/docker-app-port.jar app.jar
+RUN sh -c 'touch /app.jar'
 EXPOSE 8081
-ENTRYPOINT ["java","-jar","docker-app.jar"]
+ENTRYPOINT ["sh","-c","-jar /app.jar"]
