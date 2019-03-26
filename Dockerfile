@@ -3,4 +3,4 @@ VOLUME /tmp
 ADD build/libs/docker-app-port.jar app.jar
 RUN sh -c 'touch /app.jar'
 EXPOSE 8081
-ENTRYPOINT ["sh","-c","-jar /app.jar"]
+ENTRYPOINT ["sh","-c","java -jar /app.jar"]
