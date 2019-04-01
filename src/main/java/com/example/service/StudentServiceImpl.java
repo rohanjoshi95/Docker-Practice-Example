@@ -19,7 +19,8 @@ public class StudentServiceImpl implements StudentService{
 	public Student createStudent(Student student) {
 		return studentDao.save(student);
 	}
-
+	
+	@Override
 	public Student getStudent(Integer id) throws StudentException {
 		Optional<Student> list = studentDao.findById(id);
 		if(list.isPresent() && id != null){
