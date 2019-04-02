@@ -16,7 +16,7 @@ public class SwaggerConf {
           .select()                                  
           .apis(RequestHandlerSelectors.any()) 
           .paths(PathSelectors.any())                          
-          .build()
+          .build()  
           .pathMapping("/");                                           
     }
 }
