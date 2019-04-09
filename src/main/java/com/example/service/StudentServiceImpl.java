@@ -12,7 +12,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.example.exception.StudentException;
-import com.example.logging.LoggingAspect;
 import com.example.model.Student;
 import com.example.repository.StudentDao;
 
@@ -59,7 +58,7 @@ public class StudentServiceImpl implements StudentService {
 			studentDao.deleteById(id);
 			return true;
 		} else {
-			LOGGER.info("Student with id "+id+" is not present");
+			LOGGER.info("Student with id " + id + " is not present");
 			return false;
 		}
 	}

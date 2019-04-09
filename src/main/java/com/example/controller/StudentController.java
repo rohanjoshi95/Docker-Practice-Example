@@ -59,7 +59,7 @@ public class StudentController {
 	}
 
 	@GetMapping("/getAllStudents")
-	public ResponseEntity<Student> getAllStudents() throws StudentException {
+	public ResponseEntity<List<Student>> getAllStudents() throws StudentException {
 		List<Student> students = null;
 		try {
 			students = studentServiceImpl.getAllStudents();
@@ -69,12 +69,12 @@ public class StudentController {
 		if (students == null || students.isEmpty()) {
 			throw new StudentException("Student list is empty");
 		} else {
-			return new ResponseEntity<Student>((Student) students, HttpStatus.OK);
+			return new ResponseEntity<List<Student>>(students,HttpStatus.OK);
 		}
 
 	}
 
-	@DeleteMapping("/deleteStudent")
+	@DeleteMapping("/deleteStudent/{id}")
 	public boolean deleteStudent(@PathVariable Integer id) throws StudentException {
 		boolean result = false;
 		try {
